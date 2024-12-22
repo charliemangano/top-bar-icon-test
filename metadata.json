@@ -2,7 +2,7 @@
 	"name" : "Example#1",
 	"description" : "Hello World",
 	"shell-version" : [
-			"3.36"
+		"43.9"
 	],
 	"url" : "",
 	"uuid" : "example1@example.com",
