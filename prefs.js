@@ -7,7 +7,7 @@ function buildPrefsWidget() {
 
 	// preference widgets
 	let label = new Gtk.Label({ label: "Example Preference" });
-	widget.pack_start(label);
+	widget.append(label);
 
 	widget.show_all();
 	return widget;
