@@ -34,8 +34,9 @@ function init () {
 	closeItem.connect('activate', () => {
 		menu.close();
 	});
+	menu.addMenuItem(closeItem);
 
-	menu.close()
+	menu.close() // so it's not open by default
 }
 
 function enable () {
