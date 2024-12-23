@@ -1,4 +1,5 @@
-const {St, Clutter, ModalDialog, Shell} = imports.gi;
+const {St, Clutter} = imports.gi;
+const ModalDialog = imports.ui.modalDialog;
 const Main = imports.ui.main;
 
 let panelButton;
