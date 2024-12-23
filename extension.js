@@ -1,10 +1,9 @@
-const {St, Clutter} = imports.gi;
-const ModalDialog = imports.ui.modalDialog;
+const {St, Clutter, PopupMenu} = imports.gi;
 const Main = imports.ui.main;
 
 let panelButton;
 let panelButtonText;
-let dialog;
+let menu;
 
 function init () {
 	// create a Button with "Hello World" text
@@ -21,18 +20,19 @@ function init () {
 	// connect the button to click event
 	panelButton.connect('button-press-event', onClick)
 
-	// create dialog with close button
-	dialog = new ModalDialog.ModalDialog();
-	let content = new St.BoxLayout({ vertical: true });
-	content.add(new St.Label({ text: "this is my dialog" }));
-	dialog.contentLayout.add(content);
-	dialog.setButtons([
-		{
-			label: "close",
-			action: () => { dialog.close(); },
-			key: Clutter.KEY_Escape
-		}
-	]);
+	// create popup with close button
+	menu = new PopupMenu.PopupMenu(
+		panelButton,
+		0.25,
+		St.Side.TOP
+	);
+	Main.uiGroup.add_actor(menu.actor);
+	let menuItem = new PopupMenu.PopupMenuItem("this is my popup menu");
+	menu.addMenuItem(menuItem);
+	let closeItem = new PopupMenu.PopupMenuItem("close");
+	closeItem.connect('activate', () => {
+		menu.close();
+	});
 }
 
 function enable () {
@@ -52,6 +52,9 @@ function onClick() {
 	else
 	panelButtonText.set_text("Bye Universe")
 
-	// open the dialog
-	dialog.open();
+	// open or close the popup menu
+	if (menu.isOpen)
+		menu.close();
+	else
+		menu.open();
 };
