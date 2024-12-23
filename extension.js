@@ -49,4 +49,5 @@ function onClick() {
 			key: Clutter.KEY_Escape
 		}
 	]);
+	dialog.open();
 };
