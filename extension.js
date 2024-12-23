@@ -1,4 +1,5 @@
-const {St, Clutter, PopupMenu} = imports.gi;
+const {St, Clutter} = imports.gi;
+const PopupMenu = imports.ui.popupMenu;
 const Main = imports.ui.main;
 
 let panelButton;
