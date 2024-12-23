@@ -34,6 +34,8 @@ function init () {
 	closeItem.connect('activate', () => {
 		menu.close();
 	});
+
+	menu.close()
 }
 
 function enable () {
