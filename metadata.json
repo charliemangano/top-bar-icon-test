@@ -1,10 +1,10 @@
 {
-	"name" : "Example#1",
-	"description" : "Hello World",
+	"name" : "topbartest",
+	"description" : "Integrating top bar clickable icon",
 	"shell-version" : [
 		"43.9"
 	],
 	"url" : "",
-	"uuid" : "example1@example.com",
+	"uuid" : "topbartest@charliemangano.com",
 	"version" : 1.0
 }
