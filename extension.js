@@ -21,7 +21,7 @@ function init () {
 	panelButton.connect('button-press-event', onClick)
 
 	// create dialog with close button
-	dialog = new ModalDialog();
+	dialog = new ModalDialog.ModalDialog();
 	let content = new St.BoxLayout({ vertical: true });
 	content.add(new St.Label({ text: "this is my dialog" }));
 	dialog.contentLayout.add(content);
