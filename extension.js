@@ -17,7 +17,7 @@ function init () {
 	panelButton.set_child(panelButtonText);
 
 	// connect the button to click event
-	panelButton.connect('button-press-event', onClick())
+	panelButton.connect('button-press-event', onClick)
 }
 
 function enable () {
