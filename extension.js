@@ -17,7 +17,7 @@ function init () {
 	panelButton.set_child(panelButtonText);
 
 	// connect the button to click event
-	panelButton.connect('button-press-event', onClick())
+	panelButton.connect('button-press-event', onClick)
 }
 
 function enable () {
@@ -31,8 +31,22 @@ function disable () {
 }
 
 function onClick() {
+	// change the text of the button
 	if (panelButtonText.get_text() == "Bye Universe")
 		panelButtonText.set_text("Hello World")
 	else
 	panelButtonText.set_text("Bye Universe")
-}
+
+	// show a dialog with close button
+	let dialog = new ModalDialog();
+	let content = new St.BoxLayout({ vertical: true });
+	content.add(new St.Label({ text: "this is my dialog" }));
+	dialog.contentLayout.add(content);
+	dialog.setButtons([
+		{
+			label: "close",
+			action: () => { dialog.close(); },
+			key: Clutter.KEY_Escape
+		}
+	]);
+};
