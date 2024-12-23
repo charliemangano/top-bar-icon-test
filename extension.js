@@ -3,6 +3,7 @@ const Main = imports.ui.main;
 
 let panelButton;
 let panelButtonText;
+let dialog;
 
 function init () {
 	// create a Button with "Hello World" text
@@ -18,6 +19,19 @@ function init () {
 
 	// connect the button to click event
 	panelButton.connect('button-press-event', onClick)
+
+	// create dialog with close button
+	dialog = new ModalDialog();
+	let content = new St.BoxLayout({ vertical: true });
+	content.add(new St.Label({ text: "this is my dialog" }));
+	dialog.contentLayout.add(content);
+	dialog.setButtons([
+		{
+			label: "close",
+			action: () => { dialog.close(); },
+			key: Clutter.KEY_Escape
+		}
+	]);
 }
 
 function enable () {
@@ -37,17 +51,6 @@ function onClick() {
 	else
 	panelButtonText.set_text("Bye Universe")
 
-	// show a dialog with close button
-	let dialog = new ModalDialog();
-	let content = new St.BoxLayout({ vertical: true });
-	content.add(new St.Label({ text: "this is my dialog" }));
-	dialog.contentLayout.add(content);
-	dialog.setButtons([
-		{
-			label: "close",
-			action: () => { dialog.close(); },
-			key: Clutter.KEY_Escape
-		}
-	]);
+	// open the dialog
 	dialog.open();
 };
